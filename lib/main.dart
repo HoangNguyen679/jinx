@@ -46,24 +46,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
+      body: Stack(children: <Widget>[
+        Positioned(
+            top: 10,
+            left: 10,
+            width: 100.0,
+            height: 100.0,
+            child: ElevatedButton(
                 style: buttonStyle,
                 onPressed: () {
                   debugPrint('button is pressed!');
                   mqttClientPofovu.publishMessage('hello fox!');
                 },
-                child: const Text('Say hi'))
-          ],
-        ),
-      ),
+                child: const Text('Say hi')))
+      ]),
     );
   }
 }
